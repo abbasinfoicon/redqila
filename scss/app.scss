@@ -1,0 +1,102 @@
+@import "variables";
+@import "mixin";
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;800;900&display=swap";
+
+/*=====================================================================
+==========================   main-css-all-pages  =========================
+========================================================================*/
+
+body {
+  margin: 0;
+  padding: 0;
+  @include full-width;
+  @include montserrat(regular400);
+  background: rgba(241,243,246, 0.18);
+}
+
+
+a, a:hover, a:active, a:focus, a:link, a:visited {
+  text-decoration: none;
+  @include transition(.5s);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, li, ul {
+  margin: 0;
+  padding: 0;
+  transition: .5s;
+}
+
+//flex-item
+.flex-item {
+  @include mq(min, 767) {
+    display: flex;
+    align-items: center;
+  }
+}
+//flex-item-all
+.flex-item-all {
+  display: flex;
+  align-items: center;
+}
+
+//flex-custom
+.flex-custom{
+  @include mq(min, 992) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.vertical-block {
+  @include full-width;
+  display: table;
+  height: 100%;
+
+  .cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.mb30{
+  margin-bottom: 30px;
+}
+/*=====================================================================
+==========================   font-face  =========================
+========================================================================*/
+
+
+//delete text
+del {
+  position: relative;
+  text-decoration: none;
+  margin: 0 10px;
+  color: $text-color;
+
+  &:after{
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    height: 1px;
+    width: calc(100% + 20px);
+    content: '';
+    background: $text-color;
+    transform: translateY(-50%);
+  }
+}
+
+@include scrollbars(8, $red, $black);
+@include mq(max, 767){
+  @include scrollbars(4, $red, $black);
+}
+
+//main-scss
+@import "header-footer";
+@import "home";
